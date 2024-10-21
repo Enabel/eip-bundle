@@ -1,0 +1,17 @@
+{
+    "name": "enabel/eip-bundle",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "require": {
+        "php": "^8.1"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Enabel\\Eip\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
