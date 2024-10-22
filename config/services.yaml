@@ -1,0 +1,19 @@
+services:
+    enabel.eip.http_client.inner:
+        class: Symfony\Component\HttpClient\HttpClient
+        factory: [Symfony\Component\HttpClient\HttpClient, createForBaseUri]
+        arguments:
+            - '%env(EIP_BASE_URI)%'
+            -
+                headers: { Authorization: 'Bearer %env(EIP_TOKEN)%', Content-Type: application/ld+json }
+                timeout: 100
+
+    enabel.eip.http_client.retryable:
+        class: Symfony\Component\HttpClient\RetryableHttpClient
+        arguments:
+            - '@enabel.eip.http_client.inner'
+
+    Enabel\Eip\Client:
+        arguments:
+            - '@enabel.eip.http_client.retryable'
+            - '@logger'
