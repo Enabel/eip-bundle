@@ -43,6 +43,25 @@ final readonly class Client
 
         return $this->request('PUT', $endpoint, ['json' => $data])->toArray();
     }
+    
+    public function updateOrCreate(string $endpoint, array $data, array $search): array
+    {
+        if (count($search) === 0) {
+            throw new \RuntimeException('At least one search parameter is required.');
+        }
+
+        $response = $this->request('GET', sprintf('%s?%s', $endpoint, http_build_query($search)))->toArray();
+
+        if (count($response['hydra:member']) === 0) {
+            return $this->create($endpoint, $data);
+        }
+        
+        if (count($response['hydra:member']) === 1) {
+            return $this->update($response['hydra:member'][0]['@id'], $data);
+        }
+
+        throw new \RuntimeException('More than one result matches the search query.');
+    }
 
     /**
      * @param array<mixed> $options
