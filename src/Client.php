@@ -49,6 +49,8 @@ final readonly class Client
         if (count($search) === 0) {
             throw new \RuntimeException('At least one search parameter is required.');
         }
+        
+        $search['properties'] = '@id';
 
         $response = $this->request('GET', sprintf('%s?%s', $endpoint, http_build_query($search)))->toArray();
 
