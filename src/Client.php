@@ -66,6 +66,14 @@ final readonly class Client
     }
 
     /**
+     * @return array<mixed>
+     */
+    public function delete(string $endpoint): array
+    {
+        return $this->request('DELETE', $endpoint)->toArray();
+    }
+
+    /**
      * @param array<mixed> $options
      */
     private function request(string $method, string $url, array $options = []): ResponseInterface
