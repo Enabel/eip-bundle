@@ -8,7 +8,7 @@ use Psr\Log\LoggerInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 
-final readonly class Client
+final readonly class Client implements ClientInterface
 {
     public function __construct(
         private HttpClientInterface $eipClient,

@@ -1,9 +1,22 @@
 {
     "name": "enabel/eip-bundle",
+    "description": "Symfony bundle for EIP",
     "license": "MIT",
     "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "Gerry VANDERMAESEN",
+            "email": "gerry.vandermaesen@enabel.be"
+        },
+        {
+            "name": "Damien LAGAE",
+            "email": "damien.lagae@enabel.be"
+        }
+    ],
     "require": {
-        "php": "^8.1"
+        "php": "^8.2",
+        "symfony/framework-bundle": "^6.4 || ^7.0",
+        "symfony/http-client": "^6.4 || ^7.0"
     },
     "minimum-stability": "stable",
     "autoload": {
