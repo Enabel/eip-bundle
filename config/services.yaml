@@ -17,3 +17,5 @@ services:
         arguments:
             - '@enabel.eip.http_client.retryable'
             - '@logger'
+
+    Enabel\Eip\ClientInterface: '@Enabel\Eip\Client'
