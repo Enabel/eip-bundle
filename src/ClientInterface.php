@@ -5,6 +5,11 @@ namespace Enabel\Eip;
 interface ClientInterface
 {
     /**
+     * @return array<mixed>
+     */
+    public function get(string $endpoint): array;
+
+    /**
      * @return iterable<mixed>
      */
     public function list(string $endpoint): iterable;

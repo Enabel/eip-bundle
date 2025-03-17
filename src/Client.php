@@ -17,6 +17,14 @@ final readonly class Client implements ClientInterface
     }
 
     /**
+     * @return array<mixed>
+     */
+    public function get(string $endpoint): array
+    {
+        return $this->request('GET', $endpoint)->toArray();
+    }
+
+    /**
      * @return iterable<mixed>
      */
     public function list(string $endpoint): iterable
