@@ -78,7 +78,9 @@ final readonly class Client implements ClientInterface
      */
     public function delete(string $endpoint): array
     {
-        return $this->request('DELETE', $endpoint)->toArray();
+        $response = $this->request('DELETE', $endpoint);
+
+        return $response->getContent() ? $response->toArray() : [];
     }
 
     /**
