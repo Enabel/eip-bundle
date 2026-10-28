@@ -5,6 +5,9 @@ on:
   push:
     branches: ['main']
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     name: PHP ${{ matrix.php }} (${{ matrix.name }} deps)
@@ -39,4 +42,5 @@ jobs:
         run: composer update ${{ matrix.flags }} --prefer-dist --no-progress
 
       - name: Lint PHP files
-        run: find src -name '*.php' -print0 | xargs -0 -n1 php -l
+        shell: bash
+        run: find src -name '*.php' -print0 | xargs -0 -r -n1 php -l
