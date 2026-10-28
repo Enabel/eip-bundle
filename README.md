@@ -23,7 +23,7 @@ EIP_TOKEN=replace_by_eip_token
 
 ## Versions & dependencies
 
-The current version of the bundle works with Symfony 6.4+.
+The current version of the bundle works with Symfony 8.0+.
 The project follows SemVer.
 
 You can check the [changelog](CHANGELOG.md).
